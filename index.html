@@ -53,13 +53,16 @@
     <span class="brand">Wanderlust Roulette</span>
     <div class="top-actions">
       <button id="installBtn" class="chip hidden">Save App</button>
+      <button id="eyeBtn" class="icon-btn" aria-label="View photo only" aria-pressed="false">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      </button>
       <button id="shareBtn" class="icon-btn" aria-label="Share this country">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
       </button>
     </div>
   </header>
 
-  <article id="card" class="glass card" tabindex="-1">
+  <article id="card" class="glass card compact" tabindex="-1">
     <div class="flag" id="flag"></div>
     <h2 id="name" class="country"></h2>
     <p id="subregion" class="sub"></p>
@@ -78,6 +81,7 @@
       <p id="budgetText" class="budget-text"></p>
     </div>
     <a id="mapLink" class="maplink" target="_blank" rel="noopener">Open in Maps</a>
+    <button id="moreBtn" class="more" aria-expanded="false">More details ▾</button>
   </article>
   <p id="credit" class="credit"></p>
 </main>

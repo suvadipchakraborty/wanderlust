@@ -89,7 +89,7 @@ async function spin() {
   let c; do { c = state.countries[Math.floor(Math.random() * state.countries.length)]; } while (state.countries.length > 1 && state.current && c.cca2 === state.current.cca2);
   const minWait = new Promise(r => setTimeout(r, 900));
   await Promise.all([setBackground(c), minWait]);
-  state.current = c; render(c);
+  state.current = c; render(c); setMode(false, false);
   $("loader").classList.add("hidden"); $("app").classList.remove("hidden"); $("spinBtn").classList.remove("hidden"); $("spinBtn").classList.remove("busy");
   buzz(120);
   try { history.replaceState(null, "", "#" + encodeURIComponent(c.name.common)); } catch {}
@@ -143,6 +143,15 @@ $("startBtn").addEventListener("click", async () => {
   spin();
 });
 $("spinBtn").addEventListener("click", spin);
+function setMode(photo, open) {
+  const card = $("card");
+  card.classList.toggle("photo", photo); card.classList.toggle("compact", !open);
+  $("eyeBtn").setAttribute("aria-pressed", photo); $("moreBtn").setAttribute("aria-expanded", open);
+  $("moreBtn").textContent = open ? "Less ▴" : "More details ▾";
+  card.scrollTop = 0;
+}
+$("moreBtn").addEventListener("click", () => setMode(false, $("card").classList.contains("compact")));
+$("eyeBtn").addEventListener("click", () => setMode(!$("card").classList.contains("photo"), false));
 $("shareBtn").addEventListener("click", share);
 document.addEventListener("keydown", e => { if (e.code === "Space" && $("welcome").classList.contains("hidden") && e.target.tagName !== "SELECT") { e.preventDefault(); spin(); } });
 
