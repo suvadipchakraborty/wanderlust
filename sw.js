@@ -1,5 +1,5 @@
-const CACHE = "wanderlust-v1";
-const ASSETS = ["./", "index.html", "styles.css", "app.js", "manifest.json", "icons/icon-192.png", "icons/icon-512.png"];
+const CACHE = "wanderlust-v2";
+const ASSETS = ["./", "index.html", "styles.css", "app.js", "countries.json", "manifest.json", "icons/icon-192.png", "icons/icon-512.png"];
 
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS))); self.skipWaiting(); });
 self.addEventListener("activate", e => {

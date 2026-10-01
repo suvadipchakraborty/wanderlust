@@ -1,6 +1,6 @@
 const CONFIG = {
   UNSPLASH_API_KEY: "kEBBmYjyCeeGepXk3XwoxiRqfusM2a98Xuw_EtEG7nE",   // <- paste your Unsplash Access Key here
-  COUNTRIES_URL: "https://restcountries.com/v3.1/all?fields=name,capital,region,subregion,population,languages,currencies,flags,cca2,latlng",
+  COUNTRIES_URL: "countries.json",
   RATES_URL: "https://open.er-api.com/v6/latest/USD",
   SHAKE_THRESHOLD: 18,    // acceleration delta (m/s²)
   SHAKE_COOLDOWN_MS: 1500,
@@ -71,7 +71,7 @@ function render(c) {
   $("subregion").textContent = c.name.official !== c.name.common ? c.name.official : (c.subregion || "");
   $("capital").textContent = (c.capital || []).join(", ") || "None";
   $("region").textContent = [c.region, c.subregion].filter(Boolean).join(" / ") || "–";
-  $("population").textContent = fmt(c.population, 0);
+  $("population").textContent = (c.population ? fmt(c.population, 0) : "–");
   $("languages").textContent = Object.values(c.languages || {}).join(", ") || "–";
   $("currency").textContent = cur ? `${cur[1].name} (${cur[0]}${cur[1].symbol ? " · " + cur[1].symbol : ""})` : "–";
   $("mapLink").href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(c.name.common);
