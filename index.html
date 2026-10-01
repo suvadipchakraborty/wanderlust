@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wanderlust Roulette – Shake to discover your next trip</title>
+<meta name="description" content="Shake your phone and land on a random country with budget math and stunning photos.">
+<meta name="theme-color" content="#0d1b2a">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Wanderlust">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wanderlust Roulette">
+<meta property="og:title" content="Wanderlust Roulette – Shake to discover your next trip">
+<meta property="og:description" content="Shake your phone and land on a random country with budget math and stunning photos.">
+<meta property="og:url" content="https://wanderlust.suvadipchakraborty.workers.dev/">
+<meta property="og:image" content="https://wanderlust.suvadipchakraborty.workers.dev/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Wanderlust Roulette">
+<meta name="twitter:description" content="Shake your phone. Land somewhere new.">
+<meta name="twitter:image" content="https://wanderlust.suvadipchakraborty.workers.dev/preview.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="bg" class="bg" aria-hidden="true"></div>
+<div class="scrim" aria-hidden="true"></div>
+
+<section id="welcome" class="overlay">
+  <div class="glass welcome-card">
+    <div class="globe" aria-hidden="true"></div>
+    <h1>Wanderlust Roulette</h1>
+    <p>Shake your phone to land on a random country, with a photo and a budget check.</p>
+    <button id="startBtn" class="btn primary">Tap to Start Roulette</button>
+    <p class="hint">On desktop? Press the button or hit the space bar.</p>
+  </div>
+</section>
+
+<section id="loader" class="overlay hidden" aria-live="polite">
+  <div class="globe big" aria-hidden="true"></div>
+  <p class="loading-text">Searching the globe…</p>
+</section>
+
+<main id="app" class="hidden">
+  <header class="topbar">
+    <span class="brand">Wanderlust Roulette</span>
+    <div class="top-actions">
+      <button id="installBtn" class="chip hidden">Save App</button>
+      <button id="shareBtn" class="icon-btn" aria-label="Share this country">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <article id="card" class="glass card" tabindex="-1">
+    <div class="flag" id="flag"></div>
+    <h2 id="name" class="country"></h2>
+    <p id="subregion" class="sub"></p>
+    <dl class="facts">
+      <div><dt>Capital</dt><dd id="capital"></dd></div>
+      <div><dt>Region</dt><dd id="region"></dd></div>
+      <div><dt>Population</dt><dd id="population"></dd></div>
+      <div><dt>Languages</dt><dd id="languages"></dd></div>
+      <div class="wide"><dt>Currency</dt><dd id="currency"></dd></div>
+    </dl>
+    <div class="budget">
+      <div class="budget-row">
+        <label for="homeCurrency">Home currency</label>
+        <select id="homeCurrency"></select>
+      </div>
+      <p id="budgetText" class="budget-text"></p>
+    </div>
+    <a id="mapLink" class="maplink" target="_blank" rel="noopener">Open in Maps</a>
+  </article>
+  <p id="credit" class="credit"></p>
+</main>
+
+<button id="spinBtn" class="fab hidden" aria-label="Spin again">
+  <span class="fab-globe" aria-hidden="true"></span>Spin Again
+</button>
+
+<div id="toast" class="toast" role="status"></div>
+
+<footer class="footer">
+  Built by Suva · <a href="mailto:suvadipchakraborty@gmail.com?subject=Wanderlust%20Roulette%20feedback">Send feedback</a>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
